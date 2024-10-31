@@ -92,7 +92,7 @@ int main(int, char*[]) {
     Handle<YieldTermStructure> dividendTS(
         ext::make_shared<FlatForward>(settlementDate, dividendYield, dayCounter));
     Handle<BlackVolTermStructure> volatilityTS(
-        ext::make_shared<BlackConstantVol>(settlementDate, calendar, volatility, dayCounter));
+        ext::make_shared<BlackConstantVol>(settlementDate, calendar, volatility, wehalf));
     auto payoff = ext::make_shared<PlainVanillaPayoff>(type, strike);
     auto process = ext::make_shared<BlackScholesMertonProcess>(underlyingH, dividendTS,
                                                                   interestRateTermStructure, volatilityTS);
